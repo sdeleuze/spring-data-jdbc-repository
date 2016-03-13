@@ -54,14 +54,14 @@ import static java.util.Arrays.asList;
 public abstract class JdbcRepository<T extends Persistable<ID>, ID extends Serializable>
         implements PagingAndSortingRepository<T, ID>, InitializingBean, BeanFactoryAware {
 
-    private final TableDescription table;
+    protected final TableDescription table;
 
-    private final RowMapper<T> rowMapper;
-    private final RowUnmapper<T> rowUnmapper;
+    protected final RowMapper<T> rowMapper;
+    protected final RowUnmapper<T> rowUnmapper;
 
-    private SqlGenerator sqlGenerator;
+    protected SqlGenerator sqlGenerator;
     private BeanFactory beanFactory;
-    private JdbcOperations jdbcOperations;
+    protected JdbcOperations jdbcOperations;
 
 
     public JdbcRepository(RowMapper<T> rowMapper, RowUnmapper<T> rowUnmapper,
